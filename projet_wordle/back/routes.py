@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Query, Cookie
 from fastapi.responses import JSONResponse
-from coeur.jeu import PartieMot
+from core.jeu import game
 from uuid import uuid4
 import random
 
@@ -9,7 +9,7 @@ routeur_api = APIRouter()
 liste_mots_possibles = ["arbre", "chien", "fleur", "table", "livre", "pomme", "rouge", "plage",    "verre"]
 
 mot_a_deviner = random.choice(liste_mots_possibles)
-partie = PartieMot(mot_a_deviner)
+partie = game(mot_a_deviner)
 
 
 @routeur_api.get("/initialiser-session")
